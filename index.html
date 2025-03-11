@@ -5,16 +5,18 @@
   <title>Sreeram Ranga - Personal Website</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/jpeg" href="picture.jpg">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
     <!-- Left Panel: Name, tagline, image, button, contact links -->
     <div class="left-panel">
       <h1>
-        <span class="animate-text" data-speed="50">sreeram</span><br>
-        <span class="animate-text" data-speed="50">ranga</span>
+        <span class="animate-text" data-speed="50">Sreeram</span><br>
+        <span class="animate-text" data-speed="50">Ranga</span>
       </h1>
-      <p class="subtitle animate-text">i think i'm a cool guy</p>
+      <p class="subtitle animate-text">EECS at UC Berkeley</p>
       
       <!-- Profile image wrapper for spotlight effect -->
       <div class="profile-image-wrapper">
@@ -22,45 +24,63 @@
       </div>
       
       <!-- Secret button placed below the image wrapper -->
-      <button id="secretBtn" class="secret-btn animate-text">see my secret</button>
+      <button id="secretBtn" class="secret-btn animate-text">See my Secret</button>
       
       <!-- Hidden audio element for secret.mp3 -->
       <audio id="secretAudio" src="secret.mp3" style="display:none;"></audio>
-      
-      <p class="contact animate-text">
-        Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
-      </p>
-      <p class="contact animate-text">
-        <a href="https://github.com/your-github" target="_blank">GitHub</a>
-      </p>
+        
+    <!-- Social icons section without the animate-text class -->
+    <div class="social-icons">
+        <a href="mailto:sreeramgoudranga@gmail.com" class="social-icon" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://github.com/sreeramranga11" target="_blank" class="social-icon" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sreeramranga" target="_blank" class="social-icon" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/sreeramranga11" target="_blank" class="social-icon" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+        </a>
     </div>
     
-    <!-- Right Panel: Two columns (Currently & Previously) -->
+      
+    </div>
+    
+    <!-- Right Panel: Two columns (Currently & Projects) -->
     <div class="right-panel">
       <div class="column">
         <h2 class="animate-text">Currently</h2>
         <ul>
-          <li class="animate-text">co-founder/CEO @ ???</li>
-          <li class="animate-text">on leave from ???</li>
+          <li class="animate-text">Building LumInvest for Wealth Managers</li>
+            <li class="animate-text">Learning About Finance Engineering and Quantitative Models</li>
+            <li class="animate-text">Reading "Catch-22"</li>
+            <li class="animate-text">Listening to R&B and Hip-Hop</li>
+          <li class="animate-text">Hitting the Gym (Planet Fitness and Bouldering)</li>
+            <li class="animate-text">Playing Clash of Clans (Top 1000 in US)</li>
           <li class="animate-text">
-            trying to perfect my espresso & applying AI to many other things in the world
+            Not Studying for my Exams
           </li>
         </ul>
       </div>
       <div class="column">
-        <h2 class="animate-text">Previously</h2>
+        <h2 class="animate-text">Projects</h2>
         <ul>
-          <li class="animate-text">did ephemeral ???</li>
-          <li class="animate-text">worked on ??? ??? detection projects ???</li>
+          <li class="animate-text">Syndicate Investments</li>
+          <li class="animate-text">SIXT33N</li>
           <li class="animate-text">
-            spoke at ??? ??? about ??? ??? ???
+            Sparkr
           </li>
+          <li class="animate-text">BLISS: Berkeley Low-cost Interplanetary Solar Sail</li>
+          <li class="animate-text">The Unhangable</li>
+          <li class="animate-text">Autocorrected Typing Software</li>
         </ul>
       </div>
     </div>
   </div>
   
-  <!-- Global overlay (initially hidden) -->
+  <!-- Global overlay (for secret effects) -->
   <div id="globalOverlay"></div>
   
   <script src="script.js"></script>

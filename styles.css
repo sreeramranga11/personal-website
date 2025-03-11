@@ -164,7 +164,7 @@
     from { opacity: 0; }
     to   { opacity: 1; }
   }
-  
+
 /* Global overlay that darkens the screen outside the spotlight */
 #globalOverlay {
     position: fixed;
@@ -205,4 +205,44 @@
     background-color: #555;
   }
   
+/* Social icons container: display vertically with spacing */
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-top: 20px;
+  }
+  
+  /* Each social icon link */
+  .social-icons a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  /* Font Awesome icons styling */
+  .social-icons i {
+    font-size: 30px;
+    color: #ffffff;
+  }
+  
+  /* Numbered list items for the "Currently" and "Previously" lists */
+.column ul {
+    counter-reset: list-counter;
+  }
+  
+  .column ul li {
+    counter-increment: list-counter;
+    position: relative;
+    padding-left: 40px; /* leave space for the number */
+  }
+  
+  .column ul li::before {
+    content: counter(list-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #296b33; /* change this to your desired accent color */
+    font-weight: bold;
+  }
   
