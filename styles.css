@@ -246,3 +246,94 @@
     font-weight: bold;
   }
   
+  /* --- Project Items Styling --- */
+/* Give project items a dashed underline that glows on hover */
+.project-item {
+    cursor: pointer;
+    text-decoration: underline dashed #888;
+    transition: text-decoration-color 0.3s, text-shadow 0.3s;
+    padding-bottom: 5px; /* optional spacing */
+  }
+  
+  .project-item:hover {
+    text-decoration-color: #94c4cf;
+    text-shadow: 0 0 5px #94c4cf;
+  }
+  
+  
+  /* --- Modal Styles --- */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .modal-content {
+    background-color: #121212;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .close {
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #fff;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .modal-image {
+    flex: 1;
+  }
+  
+  .modal-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .modal-description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .learn-more-btn {
+    background-color: #296b33;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .learn-more-btn:hover {
+    background-color: #388f44;
+  }
+  
+  /* (Keep your existing CSS for the rest of the page unchanged) */
+  

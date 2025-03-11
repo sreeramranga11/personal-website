@@ -29,23 +29,21 @@
       <!-- Hidden audio element for secret.mp3 -->
       <audio id="secretAudio" src="secret.mp3" style="display:none;"></audio>
         
-    <!-- Social icons section without the animate-text class -->
-    <div class="social-icons">
+      <!-- Social icons section (without animate-text) -->
+      <div class="social-icons">
         <a href="mailto:sreeramgoudranga@gmail.com" class="social-icon" title="Email">
-        <i class="fa-solid fa-envelope"></i>
+          <i class="fa-solid fa-envelope"></i>
         </a>
         <a href="https://github.com/sreeramranga11" target="_blank" class="social-icon" title="GitHub">
-        <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-github"></i>
         </a>
         <a href="https://www.linkedin.com/in/sreeramranga" target="_blank" class="social-icon" title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-linkedin"></i>
         </a>
         <a href="https://instagram.com/sreeramranga11" target="_blank" class="social-icon" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-instagram"></i>
         </a>
-    </div>
-    
-      
+      </div>
     </div>
     
     <!-- Right Panel: Two columns (Currently & Projects) -->
@@ -54,28 +52,71 @@
         <h2 class="animate-text">Currently</h2>
         <ul>
           <li class="animate-text">Building LumInvest for Wealth Managers</li>
-            <li class="animate-text">Learning About Finance Engineering and Quantitative Models</li>
-            <li class="animate-text">Reading "Catch-22"</li>
-            <li class="animate-text">Listening to R&B and Hip-Hop</li>
+          <li class="animate-text">Learning About Finance Engineering and Quantitative Models</li>
+          <li class="animate-text">Reading "Catch-22"</li>
+          <li class="animate-text">Listening to R&B and Hip-Hop</li>
           <li class="animate-text">Hitting the Gym (Planet Fitness and Bouldering)</li>
-            <li class="animate-text">Playing Clash of Clans (Top 1000 in US)</li>
-          <li class="animate-text">
-            Not Studying for my Exams
-          </li>
+          <li class="animate-text">Playing Clash of Clans (Top 1000 in US)</li>
+          <li class="animate-text">Not Studying for my Exams</li>
         </ul>
       </div>
       <div class="column">
         <h2 class="animate-text">Projects</h2>
         <ul>
-          <li class="animate-text">Syndicate Investments</li>
-          <li class="animate-text">SIXT33N</li>
-          <li class="animate-text">
+          <!-- Each project-item now includes data attributes for image, description, and link -->
+          <li class="animate-text project-item" 
+              data-image="syndicate.avif" 
+              data-description="Syndicate Investments is a gamified social investment platform that merges fun and finance. With 100+ active users, the platform offers a rich, interactive experience, and its MVP has been refined through extensive user feedback. Optimized for peak performance, Syndicate supports a seamless and engaging user journey in the world of investment." 
+              data-link="https://drive.google.com/drive/u/1/folders/1RO1ezY9dUn0jACp6qSumk4JbReou6G1V">
+            Syndicate Investments
+          </li>
+          <li class="animate-text project-item" 
+              data-image="sixt33n.avif" 
+              data-description="Starting from basic circuitry and moving all the way to voice recognition, the project covers a wide range of engineering skills. It's interesting because it shows the potential of combining traditional engineering with AI/ML, opening up possibilities for smart, interactive devices. The idea that I can talk to a car, and it actually listens and responds, feels like the future!" 
+              data-link="https://drive.google.com/drive/u/1/folders/18xGpRDS-QTWhuXEJoCZtRotTXnKzjnpW">
+            SIXT33N (Self-Driving, Voice Recognizing , Closed Loop Car)
+          </li>
+          <li class="animate-text project-item" 
+              data-image="sparkr.avif" 
+              data-description="Sparkr is a planner and educational tool designed to assist startups, businesses, and individuals in their journey of building a product or startup. It provides a comprehensive set of features to help users plan their projects, choose an appropriate tech stack, and stay organized through a personalized Google Calendar." 
+              data-link="https://github.com/sreeramranga11/Sparkr">
             Sparkr
           </li>
-          <li class="animate-text">BLISS: Berkeley Low-cost Interplanetary Solar Sail</li>
-          <li class="animate-text">The Unhangable</li>
-          <li class="animate-text">Autocorrected Typing Software</li>
+          <li class="animate-text project-item" 
+              data-image="bliss.avif" 
+              data-description="Wrote a short NASA proposal in collaboration with world renowned Electric Engineer, Kristopher Pister, and other student researchers." 
+              data-link="https://drive.google.com/drive/folders/1emtiuJI4xlFluylxr1uqtsWXV-KTNlFc">
+            BLISS (Berkeley Low-cost Interplanetary Solar Sail)
+          </li>
+          <li class="animate-text project-item" 
+              data-image="unhangable.webp" 
+              data-description="Essentially an AI that will NEVER LOSE HANGMAN. This project was created using a variety of Java data structures and lots and lots of debugging. It even has an extra twist... let's see you if you can find it." 
+              data-link="https://drive.google.com/drive/folders/1BrCFaH79Dx8Vq51S_Ov6M-PoBYR2Pzyu">
+            The Unhangable
+          </li>
+          <li class="animate-text project-item" 
+              data-image="ats.avif" 
+              data-description="Pretty self explanatory, but I essentially created a program in Python that autocorrects the words/sentences a user types. Furthermore, this software has a social twist that allows players to compete with their friends to see who is the better typer." 
+              data-link="https://drive.google.com/drive/folders/1YpQ9xgYhy-hr71o4ZGupDwItIq_r8J1F">
+            Autocorrected Typing Software
+          </li>
         </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for project details -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img src="" alt="Project Image" id="modalImage">
+        </div>
+        <div class="modal-description">
+          <p id="modalDescription">Project Description</p>
+          <a href="#" target="_blank" id="modalLearnMore" class="learn-more-btn">Learn More</a>
+        </div>
       </div>
     </div>
   </div>

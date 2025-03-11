@@ -22,6 +22,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Animate text for all elements with .animate-text
     const elementsToAnimate = document.querySelectorAll(".animate-text");
     elementsToAnimate.forEach(el => typeWriterEffect(el));
+
+
+      // Modal functionality for project items
+    const projectItems = document.querySelectorAll(".project-item");
+    const projectModal = document.getElementById("projectModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalLearnMore = document.getElementById("modalLearnMore");
+    const closeModal = document.querySelector(".modal .close");
+
+    projectItems.forEach(item => {
+        item.addEventListener("click", () => {
+        // Retrieve data attributes from the clicked project item
+        const imgSrc = item.getAttribute("data-image");
+        const description = item.getAttribute("data-description");
+        const link = item.getAttribute("data-link");
+
+        modalImage.src = imgSrc;
+        modalDescription.textContent = description;
+        modalLearnMore.href = link;
+
+        // Show the modal
+        projectModal.style.display = "block";
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeModal.addEventListener("click", () => {
+        projectModal.style.display = "none";
+    });
+
+    // Close modal when clicking outside the modal content
+    window.addEventListener("click", (event) => {
+        if (event.target === projectModal) {
+        projectModal.style.display = "none";
+        }
+    });
+
+
   
     // Secret toggle functionality
     const secretBtn = document.getElementById("secretBtn");
