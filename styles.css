@@ -1,1 +1,208 @@
-
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling: typewriter-style font */
+  body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  /* Main container splits the page into left and right panels */
+  .container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  
+  /* Panels */
+  .left-panel,
+  .right-panel {
+    flex: 1;
+    padding: 50px;
+  }
+  
+  /* Right panel split into two columns */
+  .right-panel {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+  }
+  
+  /* Columns */
+  .column {
+    width: 40%;
+  }
+  
+  .column h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .column ul li {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Left panel headings */
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  /* Subtitle */
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile image wrapper for spotlight effect */
+  .profile-image-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile image */
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Retain the pixelated reveal if desired */
+    opacity: 0;
+    animation: pixelateReveal 1.5s steps(20, end) forwards;
+  }
+  
+  /* Pixelated reveal keyframes */
+  @keyframes pixelateReveal {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  /* Spotlight effect on the image wrapper when the spotlight class is added */
+  .profile-image-wrapper.spotlight::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.9) 100%);
+  }
+  
+  /* Secret button styling */
+  .secret-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    display: block;
+  }
+  
+  .secret-btn:hover {
+    background-color: #555;
+  }
+  
+  /* Contact links */
+  .contact {
+    margin-bottom: 10px;
+  }
+  
+  .contact a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Lists */
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 40px;
+  }
+  
+  /* Dummy rule for .animate-text */
+  .animate-text {
+    font-weight: inherit;
+  }
+/* Profile image wrapper for spotlight effect */
+.profile-image-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  /* (Existing profile image rules remain unchanged) */
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    animation: pixelateReveal 1.5s steps(20, end) forwards;
+  }
+  
+  @keyframes pixelateReveal {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+/* Global overlay that darkens the screen outside the spotlight */
+#globalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* We’ll set this dynamically */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+  }
+  
+  #globalOverlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  
+  /* Secret button styling; raise its stacking order so it’s clickable */
+  .secret-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+  
+  .secret-btn:hover {
+    background-color: #555;
+  }
+  
+  

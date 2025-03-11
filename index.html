@@ -1,1 +1,68 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sreeram Ranga - Personal Website</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/jpeg" href="picture.jpg">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel: Name, tagline, image, button, contact links -->
+    <div class="left-panel">
+      <h1>
+        <span class="animate-text" data-speed="50">sreeram</span><br>
+        <span class="animate-text" data-speed="50">ranga</span>
+      </h1>
+      <p class="subtitle animate-text">i think i'm a cool guy</p>
+      
+      <!-- Profile image wrapper for spotlight effect -->
+      <div class="profile-image-wrapper">
+        <img src="picture.jpg" alt="Placeholder" class="profile-image" />
+      </div>
+      
+      <!-- Secret button placed below the image wrapper -->
+      <button id="secretBtn" class="secret-btn animate-text">see my secret</button>
+      
+      <!-- Hidden audio element for secret.mp3 -->
+      <audio id="secretAudio" src="secret.mp3" style="display:none;"></audio>
+      
+      <p class="contact animate-text">
+        Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
+      </p>
+      <p class="contact animate-text">
+        <a href="https://github.com/your-github" target="_blank">GitHub</a>
+      </p>
+    </div>
+    
+    <!-- Right Panel: Two columns (Currently & Previously) -->
+    <div class="right-panel">
+      <div class="column">
+        <h2 class="animate-text">Currently</h2>
+        <ul>
+          <li class="animate-text">co-founder/CEO @ ???</li>
+          <li class="animate-text">on leave from ???</li>
+          <li class="animate-text">
+            trying to perfect my espresso & applying AI to many other things in the world
+          </li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2 class="animate-text">Previously</h2>
+        <ul>
+          <li class="animate-text">did ephemeral ???</li>
+          <li class="animate-text">worked on ??? ??? detection projects ???</li>
+          <li class="animate-text">
+            spoke at ??? ??? about ??? ??? ???
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Global overlay (initially hidden) -->
+  <div id="globalOverlay"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
