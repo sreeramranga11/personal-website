@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const profileImage = profileWrapper.querySelector(".profile-image");
       if (secretBtn.textContent.trim().toLowerCase() === "see my secret") {
         secretBtn.textContent = "hide my secret";
-        profileImage.src = "image.png";
+        profileImage.src = "assets/image.png";
         secretAudio.play();
   
         // Calculate the center and radius for the hole based on the wrapper's position
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         globalOverlay.classList.add("active");
       } else {
         secretBtn.textContent = "see my secret";
-        profileImage.src = "picture.jpg";
+        profileImage.src = "assets/picture.jpg";
         secretAudio.pause();
         secretAudio.currentTime = 0;
         globalOverlay.classList.remove("active");

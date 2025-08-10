@@ -348,4 +348,66 @@
   .learn-more-btn:hover {
     background-color: #388f44;
   }
+
+  /* --- Responsive Mobile Layout --- */
+  @media (max-width: 768px) {
+    /* Stack panels vertically */
+    .container {
+      flex-direction: column;
+    }
+
+    /* Reduce padding for smaller screens */
+    .left-panel,
+    .right-panel {
+      padding: 20px;
+    }
+
+    /* Center content in the left panel */
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Slightly smaller profile image */
+    .profile-image-wrapper {
+      width: 150px;
+      height: 150px;
+    }
+
+    /* Turn right panel into a horizontal carousel */
+    .right-panel {
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .right-panel::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Each column becomes a full-width card */
+    .column {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: start;
+      margin-right: 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+
+    .column h2 {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .column ul li {
+      font-size: 1rem;
+    }
+  }
   
