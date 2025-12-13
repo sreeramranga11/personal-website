@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   stampYear();
   initGooeyText();
   initProjectModal();
-  initSecretTrigger();
 });
 
 function stampYear() {
@@ -162,42 +161,4 @@ function initProjectModal() {
       openModal(card);
     });
   });
-}
-
-function initSecretTrigger() {
-  const secretBtn = document.getElementById("secretBtn");
-  const secretAudio = document.getElementById("secretAudio");
-  if (!secretBtn || !secretAudio) return;
-
-  const label = secretBtn.querySelector("span") || secretBtn;
-  const icon = secretBtn.querySelector("i");
-  let isActive = false;
-
-  const setState = playing => {
-    isActive = playing;
-    document.body.classList.toggle("secret-mode", playing);
-    secretBtn.classList.toggle("active", playing);
-    label.textContent = playing ? "Secret mode engaged" : "Pulse the secret track";
-    if (icon) {
-      icon.classList.toggle("fa-wave-square", !playing);
-      icon.classList.toggle("fa-circle-stop", playing);
-    }
-  };
-
-  secretBtn.addEventListener("click", async () => {
-    try {
-      if (isActive) {
-        secretAudio.pause();
-        secretAudio.currentTime = 0;
-        setState(false);
-      } else {
-        await secretAudio.play();
-        setState(true);
-      }
-    } catch (error) {
-      console.error("Secret audio failed:", error);
-    }
-  });
-
-  secretAudio.addEventListener("ended", () => setState(false));
 }

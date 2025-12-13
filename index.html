@@ -7,70 +7,66 @@
   <title>Sreeram Ranga — Experiential Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/jpeg" href="assets/picture.jpg" />
+  <link rel="icon" type="image/png" href="assets/mem4.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="canvas">
+    <div class="halo halo--amber"></div>
+    <div class="halo halo--violet"></div>
+    <div class="grain"></div>
+  </div>
 
-  <main class="page">
-    <header class="site-header" id="top">
-      <a class="logo" href="#top" aria-label="Go to top">
-        <span>SR</span>
+  <main class="shell">
+    <header class="nav-bar" id="top">
+      <a class="brand" href="#home" aria-label="Logo">
+        <img src="assets/mem4.png" alt="Sreeram logo" />
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#now">Now</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="chip chip--ghost" href="mailto:sreeramgoudranga@gmail.com">
-        Say hi <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-      </a>
+      <div class="nav-actions">
+        <a class="pill pill--ghost" href="mailto:sreeramgoudranga@gmail.com">Say hi</a>
+        <a class="pill pill--solid" href="assets/Sreeram Resume 8:28:25.pdf" download>
+          Resume
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
     </header>
 
     <section class="hero" id="home">
       <div class="hero-copy">
-        <p class="hero-pill">EECS @ Berkeley · Building frontier tools</p>
-        <h1>
-          Engineering audacious systems for
-          <span id="gooey-text"
-                class="gooey-text"
-                data-texts='["Designers","Underwriters","Investors","Dreamers"]'
-                data-morph-time="1.2"
-                data-cooldown="0.32">
-            <svg class="gooey-filter" aria-hidden="true">
-              <defs>
-                <filter id="threshold">
-                  <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
-                                                                           0 1 0 0 0
-                                                                           0 0 1 0 0
-                                                                           0 0 0 255 -140" />
-                </filter>
-              </defs>
-            </svg>
-            <div class="gooey-stage">
-              <span class="gooey-text-layer"></span>
-              <span class="gooey-text-layer"></span>
-            </div>
-          </span>
-          scale.
-        </h1>
-        <p class="hero-description">
-          I build across the stack—AI copilots for GCP, autonomous vehicles that vibe to your voice,
-          and finance tools that feel like sci‑fi cockpits. Currently dialing up AgriRisk and LuminVest.
+        <p class="eyebrow">EECS @ Berkeley · Building frontier tools</p>
+        <h1><span class="script-tag">I'm</span> Sreeram Ranga</h1>
+        <p class="lead">
+          I build across the stack: AI copilots for GCP, autonomous vehicles that vibe to your voice,
+          and finance tools that feel like sci-fi cockpits. Currently dialing up AgriRisk and LuminVest.
         </p>
-        <div class="hero-cta">
-          <a class="btn btn--primary" href="assets/Sreeram Resume 8:28:25.pdf" download>
-            <i class="fa-solid fa-download" aria-hidden="true"></i> Resume Capsule
+        <div class="cta-row">
+          <a class="btn btn--primary" href="https://calendly.com/sreeramgoudranga/30min" target="_blank" rel="noreferrer">
+            Chat with me
           </a>
-          <a class="btn btn--ghost" href="https://github.com/sreeramranga11" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-          </a>
+          <div class="cta-icons" aria-label="Primary profiles">
+            <a class="icon-pill" href="https://www.linkedin.com/in/sreeramranga" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a class="icon-pill" href="https://github.com/sreeramranga11" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="icon-pill" href="assets/Sreeram Resume 8:28:25.pdf" download aria-label="Resume">
+              <i class="fa-solid fa-file-arrow-down"></i>
+            </a>
+            <a class="icon-pill" href="https://instagram.com/sreeramranga11" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
         </div>
-        <div class="hero-stats">
+        <div class="stat-row">
           <article>
             <span>18+</span>
             <p>Projects shipped</p>
@@ -84,46 +80,76 @@
             <p>Clash of Clans US</p>
           </article>
         </div>
-        <ul class="social-dock" aria-label="Social links">
-          <li><a href="https://www.linkedin.com/in/sreeramranga" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
-          <li><a href="https://instagram.com/sreeramranga11" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
-          <li><a href="https://open.spotify.com/user/fh6s3roo8vggckkk8rfzjx9g0" target="_blank" rel="noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a></li>
-          <li><a href="mailto:sreeramgoudranga@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
-        </ul>
+        <div class="pill-trail" aria-label="Focus areas">
+          <span>Risk AI</span>
+          <span>Infra copilots</span>
+          <span>Robotics</span>
+          <span>Fintech</span>
+          <span>Playful systems</span>
+          <span>Geospatial</span>
+          <span>Infra ops</span>
+          <span>Voice UX</span>
+        </div>
       </div>
-
-      <div class="hero-lab">
-        <div class="portrait-card">
-          <div class="portrait-glow" aria-hidden="true"></div>
-          <img src="assets/picture.jpg" alt="Portrait of Sreeram Ranga" class="portrait-img" loading="lazy" />
-          <div class="portrait-caption">
-            <p>Shot in Berkeley</p>
-            <span>Spring 2024</span>
+      <div class="hero-visual">
+        <div class="memoji-card">
+          <img src="assets/mem1.png" alt="Memoji portrait" loading="lazy" />
+          <div class="card-footer">
           </div>
         </div>
-        <div class="lab-chip glass">
-          <div>
-            <p class="eyebrow">Live Simulation</p>
-            <h3>AgriRisk // Atmos v2</h3>
-          </div>
-          <div class="chip-metrics">
-            <span>Latency ↓ 37%</span>
-            <span>16 data sources</span>
-          </div>
+        <div class="note-card glass">
+          <p class="eyebrow">Building</p>
+          <h3>AgriRisk &amp; LuminVest</h3>
+          <ul>
+            <li>Risk cockpit for insurance underwriters</li>
+            <li>AI-backed guidance for wealth managers</li>
+          </ul>
         </div>
-        <button class="secret-trigger" id="secretBtn" type="button">
-          <span>Pulse the secret track</span>
-          <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
-        </button>
       </div>
     </section>
 
-    <section class="section now" id="now">
-      <div class="section-head">
-        <p class="eyebrow">Now</p>
-        <h2>Operating system for my present tense</h2>
+    <section class="panel about" id="about">
+      <div class="panel-head">
+        <p class="eyebrow">About</p>
+        <h2>Experiential engineer blending rigor, curiosity, and play.</h2>
       </div>
-      <div class="now-grid">
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="assets/mem2.png" alt="Memoji portrait" loading="lazy" />
+          <div>
+            <p>
+              Hey there! I'm Sreeram, a builder who thrives on human-centered systems thinking.
+              From voice-reactive vehicles to geospatial risk copilots, I obsess over details and
+              love uniting teams around bold, well-crafted experiences.
+            </p>
+            <div class="chips-inline">
+              <span>LLM tinkerer</span>
+              <span>Signal wrangler</span>
+              <span>Climber &amp; tennis</span>
+              <span>Astro hobbyist</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <article>
+            <span>8+</span>
+            <p>AI labs taught · 43 mentees</p>
+          </article>
+          <article>
+            <span>V6 & 5.12</span>
+            <p>Climber · Boulderer</p>
+          </article>
+          <article>
+            <span>Airglow</span>
+            <p>Astrophotography &amp; midnight shoots</p>
+          </article>
+          <article>
+            <span>Car DJ</span>
+            <p>Voice-reactive ride that vibes back</p>
+          </article>
+        </div>
+      </div>
+      <div class="now-cards">
         <article class="now-card">
           <p class="eyebrow">Building</p>
           <h3>AgriRisk &amp; LuminVest</h3>
@@ -151,10 +177,10 @@
       </div>
     </section>
 
-    <section class="section projects" id="projects">
-      <div class="section-head">
+    <section class="panel projects" id="projects">
+      <div class="panel-head">
         <p class="eyebrow">Projects</p>
-        <h2>Playful, technical, and obsessively polished</h2>
+        <h2>Playful, technical, and obsessively polished.</h2>
       </div>
       <div class="projects-grid">
         <article class="project-card"
@@ -162,11 +188,11 @@
                  data-image="assets/agririsk.png"
                  data-description="AgriRisk fuses satellite, drone, climate, and historical claims data into a living risk model so insurers can price faster with field-level precision."
                  data-link="https://youtu.be/iHk5MFlHaDU">
-          <div class="project-cover" style="background-image: url('assets/agririsk.png');"></div>
+          <div class="project-cover">
+            <img src="assets/agririsk.png" alt="AgriRisk preview" loading="lazy" />
+            <div class="project-tags"><span>Risk AI</span><span>ML Ops</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Risk AI</span><span>ML Ops</span>
-            </div>
             <h3>AgriRisk</h3>
             <p>Real-time geospatial underwriting intelligence.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -178,11 +204,11 @@
                  data-image="assets/gcp_agent.png"
                  data-description="A Terraform-native assistant that authors cloud infrastructure, debugs resources, and explains architecture in plain language."
                  data-link="https://github.com/sreeramranga11/gcp_terraform_chatbot">
-          <div class="project-cover" style="background-image: url('assets/gcp_agent.png');"></div>
+          <div class="project-cover">
+            <img src="assets/gcp_agent.png" alt="GCP Infrastructure AI Agent preview" loading="lazy" />
+            <div class="project-tags"><span>Terraform</span><span>LLM</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Terraform</span><span>LLM</span>
-            </div>
             <h3>GCP Infrastructure AI Agent</h3>
             <p>Copilot for cloud engineers and SREs.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -194,11 +220,11 @@
                  data-image="assets/kubestar.png"
                  data-description="Computer-vision powered cube solver—scan every face, receive real-time instructions, and learn the solving logic."
                  data-link="https://github.com/sreeramranga11/kubestar">
-          <div class="project-cover" style="background-image: url('assets/kubestar.png');"></div>
+          <div class="project-cover">
+            <img src="assets/kubestar.png" alt="Kubestar preview" loading="lazy" />
+            <div class="project-tags"><span>CV</span><span>Mobile</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>CV</span><span>Mobile</span>
-            </div>
             <h3>Kubestar</h3>
             <p>Rubik’s cube assistant with AR guidance.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -210,11 +236,11 @@
                  data-image="assets/syndicate.avif"
                  data-description="A social investment playground with gacha-like delight—100+ users track plays, unlock achievements, and swap strategies."
                  data-link="https://drive.google.com/drive/u/1/folders/1RO1ezY9dUn0jACp6qSumk4JbReou6G1V">
-          <div class="project-cover" style="background-image: url('assets/syndicate.avif');"></div>
+          <div class="project-cover">
+            <img src="assets/syndicate.avif" alt="Syndicate Investments preview" loading="lazy" />
+            <div class="project-tags"><span>Fintech</span><span>Product</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Fintech</span><span>Product</span>
-            </div>
             <h3>Syndicate Investments</h3>
             <p>Gamified investing with real stakes.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -226,11 +252,11 @@
                  data-image="assets/sixt33n.avif"
                  data-description="A self-driving, voice-reactive car that blends EE fundamentals with ML so you can literally talk to your ride."
                  data-link="https://drive.google.com/drive/u/1/folders/18xGpRDS-QTWhuXEJoCZtRotTXnKzjnpW">
-          <div class="project-cover" style="background-image: url('assets/sixt33n.avif');"></div>
+          <div class="project-cover">
+            <img src="assets/sixt33n.avif" alt="SIXT33N preview" loading="lazy" />
+            <div class="project-tags"><span>Robotics</span><span>Voice</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Robotics</span><span>Voice</span>
-            </div>
             <h3>SIXT33N</h3>
             <p>Closed-loop autonomy meets speech.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -242,11 +268,11 @@
                  data-image="assets/sparkr.avif"
                  data-description="Founder OS that pairs planning rituals, tech-stack picks, and calendar automation for early teams."
                  data-link="https://github.com/sreeramranga11/Sparkr">
-          <div class="project-cover" style="background-image: url('assets/sparkr.avif');"></div>
+          <div class="project-cover">
+            <img src="assets/sparkr.avif" alt="Sparkr preview" loading="lazy" />
+            <div class="project-tags"><span>Productivity</span><span>Web</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Productivity</span><span>Web</span>
-            </div>
             <h3>Sparkr</h3>
             <p>Personalized roadmap + calendar companion.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -258,11 +284,11 @@
                  data-image="assets/bliss.avif"
                  data-description="NASA-backed proposal for ultra-low-cost interplanetary propulsion using solar sails and Berkeley hardware chops."
                  data-link="https://drive.google.com/drive/folders/1emtiuJI4xlFluylxr1uqtsWXV-KTNlFc">
-          <div class="project-cover" style="background-image: url('assets/bliss.avif');"></div>
+          <div class="project-cover">
+            <img src="assets/bliss.avif" alt="BLISS preview" loading="lazy" />
+            <div class="project-tags"><span>Space</span><span>Research</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Space</span><span>Research</span>
-            </div>
             <h3>BLISS</h3>
             <p>Solar-sail propulsion concept.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -274,11 +300,11 @@
                  data-image="assets/unhangable.webp"
                  data-description="An undefeatable Hangman adversary that predicts intent through probabilistic linguistics and a cheeky twist ending."
                  data-link="https://drive.google.com/drive/folders/1BrCFaH79Dx8Vq51S_Ov6M-PoBYR2Pzyu">
-          <div class="project-cover" style="background-image: url('assets/unhangable.webp');"></div>
+          <div class="project-cover">
+            <img src="assets/unhangable.webp" alt="The Unhangable preview" loading="lazy" />
+            <div class="project-tags"><span>AI</span><span>Game</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>AI</span><span>Game</span>
-            </div>
             <h3>The Unhangable</h3>
             <p>Hangman but impossible to beat.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -290,11 +316,11 @@
                  data-image="assets/ats.avif"
                  data-description="Social autocorrect arena built in Python—type faster, climb the leaderboard, and trash talk via metrics."
                  data-link="https://drive.google.com/drive/folders/1YpQ9xgYhy-hr71o4ZGupDwItIq_r8J1F">
-          <div class="project-cover" style="background-image: url('assets/ats.avif');"></div>
+          <div class="project-cover">
+            <img src="assets/ats.avif" alt="Autocorrected Typing Software preview" loading="lazy" />
+            <div class="project-tags"><span>Python</span><span>Play</span></div>
+          </div>
           <div class="project-body">
-            <div class="project-tags">
-              <span>Python</span><span>Play</span>
-            </div>
             <h3>Autocorrected Typing Software</h3>
             <p>Competitive autocorrect arena.</p>
             <button class="project-cta" type="button">Open capsule</button>
@@ -303,25 +329,39 @@
       </div>
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="section-head">
-        <p class="eyebrow">Contact</p>
-        <h2>Let’s build something delightfully overkill</h2>
-      </div>
-      <div class="contact-grid">
-        <a class="btn btn--primary" href="mailto:sreeramgoudranga@gmail.com">
-          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-          Write me an email
-        </a>
-        <a class="btn btn--ghost" href="https://calendly.com/sreeramgoudranga/30min" target="_blank" rel="noreferrer">
-          <i class="fa-solid fa-calendar-plus" aria-hidden="true"></i>
-          Drop time on Calendly
-        </a>
+    <section class="panel contact" id="contact">
+      <div class="contact-card">
+        <div class="contact-visual contact-visual--full">
+          <div class="contact-avatar contact-avatar--hero">
+            <img src="assets/mem3.png" alt="Memoji portrait" loading="lazy" />
+          </div>
+        </div>
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s build something delightfully overkill.</h2>
+          <p class="lead">Reach out for collaborations, experiments, or to jam on a wild idea.</p>
+          <div class="cta-row">
+            <a class="btn btn--primary" href="mailto:sreeramgoudranga@gmail.com">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              Email me
+            </a>
+            <a class="btn btn--ghost" href="https://calendly.com/sreeramranga/30min" target="_blank" rel="noreferrer">
+              <i class="fa-solid fa-calendar-plus" aria-hidden="true"></i>
+              Drop time
+            </a>
+          </div>
+          <div class="social-row" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/sreeramranga" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://instagram.com/sreeramranga11" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://open.spotify.com/user/fh6s3roo8vggckkk8rfzjx9g0" target="_blank" rel="noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
+            <a href="mailto:sreeramgoudranga@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
       </div>
     </section>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Sreeram Ranga · Crafted for GitHub Pages</p>
+      <p>© <span id="year"></span> Sreeram Ranga</p>
     </footer>
   </main>
 
@@ -344,8 +384,6 @@
       </div>
     </div>
   </div>
-
-  <audio id="secretAudio" src="assets/secret.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
