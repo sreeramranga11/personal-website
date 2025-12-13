@@ -1,116 +1,164 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Function to animate text letter by letter with configurable speed/delay
-    function typeWriterEffect(el, defaultSpeed = 25, defaultDelay = 0) {
-      const speed = el.getAttribute("data-speed")
-        ? parseInt(el.getAttribute("data-speed"))
-        : defaultSpeed;
-      const delay = el.getAttribute("data-delay")
-        ? parseInt(el.getAttribute("data-delay"))
-        : defaultDelay;
-      const fullText = el.textContent;
-      el.textContent = "";
-      let i = 0;
-      setTimeout(function addChar() {
-        if (i < fullText.length) {
-          el.textContent += fullText.charAt(i);
-          i++;
-          setTimeout(addChar, speed);
-        }
-      }, delay);
+  stampYear();
+  initGooeyText();
+  initProjectModal();
+});
+
+function stampYear() {
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
+
+function initGooeyText() {
+  const container = document.getElementById("gooey-text");
+  if (!container) return;
+
+  const rawTexts = container.dataset.texts;
+  let texts = [];
+
+  try {
+    texts = JSON.parse(rawTexts);
+  } catch {
+    texts = rawTexts ? rawTexts.split(",") : [];
+  }
+
+  if (texts.length < 2) return;
+
+  const morphTime = parseFloat(container.dataset.morphTime) || 1;
+  const cooldownTime = parseFloat(container.dataset.cooldown) || 0.25;
+  const [text1, text2] = container.querySelectorAll(".gooey-text-layer");
+
+  if (!text1 || !text2) return;
+
+  let textIndex = texts.length - 1;
+  let time = new Date();
+  let morph = 0;
+  let cooldown = cooldownTime;
+
+  text1.textContent = texts[textIndex % texts.length];
+  text2.textContent = texts[(textIndex + 1) % texts.length];
+
+  function setMorph(fraction) {
+    const safeFraction = Math.min(Math.max(fraction, 0), 1);
+    const inverse = 1 - safeFraction;
+
+    if (text2) {
+      const blur = Math.min(8 / safeFraction - 8, 100);
+      text2.style.filter = `blur(${isFinite(blur) ? blur : 100}px)`;
+      text2.style.opacity = `${Math.pow(safeFraction, 0.4) * 100}%`;
     }
-  
-    // Animate text for all elements with .animate-text
-    const elementsToAnimate = document.querySelectorAll(".animate-text");
-    elementsToAnimate.forEach(el => typeWriterEffect(el));
 
+    if (text1) {
+      const blur = Math.min(8 / inverse - 8, 100);
+      text1.style.filter = `blur(${isFinite(blur) ? blur : 100}px)`;
+      text1.style.opacity = `${Math.pow(inverse, 0.4) * 100}%`;
+    }
+  }
 
-      // Modal functionality for project items
-    const projectItems = document.querySelectorAll(".project-item");
-    const projectModal = document.getElementById("projectModal");
-    const modalImage = document.getElementById("modalImage");
-    const modalDescription = document.getElementById("modalDescription");
-    const modalLearnMore = document.getElementById("modalLearnMore");
-    const closeModal = document.querySelector(".modal .close");
+  function doMorph() {
+    morph -= cooldown;
+    cooldown = 0;
+    let fraction = morph / morphTime;
 
-    projectItems.forEach(item => {
-        item.addEventListener("click", () => {
-        // Retrieve data attributes from the clicked project item
-        const imgSrc = item.getAttribute("data-image");
-        const description = item.getAttribute("data-description");
-        const link = item.getAttribute("data-link");
+    if (fraction > 1) {
+      cooldown = cooldownTime;
+      fraction = 1;
+    }
 
-        modalImage.src = imgSrc;
-        modalDescription.textContent = description;
-        modalLearnMore.href = link;
+    setMorph(fraction);
+  }
 
-        // Show the modal
-        projectModal.style.display = "block";
-        });
-    });
+  function doCooldown() {
+    morph = 0;
+    if (text1 && text2) {
+      text2.style.filter = "";
+      text2.style.opacity = "100%";
+      text1.style.filter = "";
+      text1.style.opacity = "0%";
+    }
+  }
 
-    // Close modal when clicking the close button
-    closeModal.addEventListener("click", () => {
-        projectModal.style.display = "none";
-    });
+  function animate() {
+    requestAnimationFrame(animate);
+    const newTime = new Date();
+    const dt = (newTime.getTime() - time.getTime()) / 1000;
+    time = newTime;
 
-    // Close modal when clicking outside the modal content
-    window.addEventListener("click", (event) => {
-        if (event.target === projectModal) {
-        projectModal.style.display = "none";
-        }
-    });
+    const shouldIncrementIndex = cooldown > 0;
+    cooldown -= dt;
 
-
-  
-    // Secret toggle functionality
-    const secretBtn = document.getElementById("secretBtn");
-    const profileWrapper = document.querySelector(".profile-image-wrapper");
-    const secretAudio = document.getElementById("secretAudio");
-    const globalOverlay = document.getElementById("globalOverlay");
-  
-    secretBtn.addEventListener("click", () => {
-      // Get the inner image element from the wrapper
-      const profileImage = profileWrapper.querySelector(".profile-image");
-      if (secretBtn.textContent.trim().toLowerCase() === "see my secret") {
-        secretBtn.textContent = "hide my secret";
-        profileImage.src = "assets/image.png";
-        secretAudio.play();
-  
-        // Calculate the center and radius for the hole based on the wrapper's position
-        const rect = profileWrapper.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        // Radius slightly larger than half the diagonal of the wrapper (adjust as needed)
-        const radius = Math.sqrt((rect.width / 2) ** 2 + (rect.height / 2) ** 2) + 20;
-  
-        // Set the overlay's background using a radial gradient:
-        // Everything inside the circle (radius) is transparent; outside becomes dark.
-        globalOverlay.style.background = `radial-gradient(circle at ${cx}px ${cy}px, transparent ${radius}px, rgba(0, 0, 0, 0.8) ${radius + 1}px)`;
-        globalOverlay.classList.add("active");
-      } else {
-        secretBtn.textContent = "see my secret";
-        profileImage.src = "assets/picture.jpg";
-        secretAudio.pause();
-        secretAudio.currentTime = 0;
-        globalOverlay.classList.remove("active");
-        globalOverlay.style.background = "";
+    if (cooldown <= 0) {
+      if (shouldIncrementIndex) {
+        textIndex = (textIndex + 1) % texts.length;
+        text1.textContent = texts[textIndex % texts.length];
+        text2.textContent = texts[(textIndex + 1) % texts.length];
       }
-    });
-  
-    // (Optional) Existing fade-in functionality for list items...
-    const fadeInElements = document.querySelectorAll(".fade-in");
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1
-    };
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    fadeInElements.forEach(el => observer.observe(el));
+      doMorph();
+    } else {
+      doCooldown();
+    }
+  }
+
+  animate();
+}
+
+function initProjectModal() {
+  const modal = document.getElementById("projectModal");
+  if (!modal) return;
+
+  const modalImage = document.getElementById("modalImage");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalLink = document.getElementById("modalLearnMore");
+  const closeTargets = modal.querySelectorAll("[data-close]");
+  const cards = document.querySelectorAll(".project-card");
+
+  const closeModal = () => {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  const openModal = card => {
+    modalTitle.textContent = card.dataset.title || "Project Capsule";
+    modalDescription.textContent = card.dataset.description || "";
+
+    if (card.dataset.image) {
+      modalImage.src = card.dataset.image;
+      modalImage.alt = `${card.dataset.title || "Project"} preview`;
+    } else {
+      modalImage.removeAttribute("src");
+      modalImage.alt = "";
+    }
+
+    if (card.dataset.link) {
+      modalLink.href = card.dataset.link;
+      modalLink.style.display = "inline-flex";
+    } else {
+      modalLink.removeAttribute("href");
+      modalLink.style.display = "none";
+    }
+
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  closeTargets.forEach(target => target.addEventListener("click", closeModal));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
   });
+
+  cards.forEach(card => {
+    card.addEventListener("click", event => {
+      if (event.target.closest("a") && event.target.closest(".project-cta") === null) {
+        return;
+      }
+      openModal(card);
+    });
+  });
+}
